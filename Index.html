@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Free Online Word Counter Tool</title>
+  <style>
+    body {font-family: Arial, sans-serif; background:#f8fafc; color:#111; margin:0; padding:20px;}
+    .container {max-width:800px; margin:auto;}
+    h1 {font-size:28px; margin-bottom:10px;}
+    textarea {width:100%; height:200px; padding:12px; border-radius:8px; border:1px solid #ccc; font-size:15px;}
+    .stats {margin-top:10px; padding:10px; background:#f1f5f9; border-radius:8px;}
+    .ads {margin:20px 0; text-align:center; background:#e2e8f0; padding:10px; border-radius:8px; font-size:14px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Free Online Word Counter</h1>
+    <p>Check the number of words, characters, sentences and reading time instantly. Perfect for essays, SEO, and social media.</p>
+
+    <textarea id="text" placeholder="Type or paste your text here..."></textarea>
+    <div class="stats">
+      <p><b>Words:</b> <span id="words">0</span></p>
+      <p><b>Characters:</b> <span id="chars">0</span></p>
+      <p><b>Sentences:</b> <span id="sents">0</span></p>
+      <p><b>Reading Time:</b> <span id="time">0 min</span></p>
+    </div>
+
+    <div class="ads">
+      <!-- yahan adsense ya affiliate link lagana hai -->
+      Example: <a href="https://grammarly.com" target="_blank">Improve your writing with Grammarly</a>
+    </div>
+
+    <h2>Why use a Word Counter?</h2>
+    <p>Writers, students, bloggers, and social media creators often need to check word and character limits. Our tool helps you stay within limits for essays, tweets, SEO meta descriptions, or blog posts.</p>
+
+    <h2>SEO Benefits</h2>
+    <p>Google values content length and readability. Use this free word counter to optimize your articles. Knowing your word count helps balance keyword density and user experience.</p>
+
+    <h2>Common Uses</h2>
+    <ul>
+      <li>Check essay or assignment length</li>
+      <li>Count characters for Twitter or Instagram captions</li>
+      <li>SEO blog post optimization</li>
+      <li>Freelancers delivering client work</li>
+    </ul>
+  </div>
+
+  <script>
+    const textArea = document.getElementById("text");
+    const words = document.getElementById("words");
+    const chars = document.getElementById("chars");
+    const sents = document.getElementById("sents");
+    const time = document.getElementById("time");
+
+    textArea.addEventListener("input", () => {
+      const text = textArea.value.trim();
+      words.textContent = text ? text.split(/\s+/).length : 0;
+      chars.textContent = text.length;
+      sents.textContent = text ? text.split(/[.!?]+/).filter(Boolean).length : 0;
+      time.textContent = Math.ceil(words.textContent / 200) + " min";
+    });
+  </script>
+</body>
+</html>
